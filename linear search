@@ -1,0 +1,40 @@
+#include<stdio.h>
+#include<conio.h>
+#include<time.h>
+void delay()
+{
+int u;
+for(u=8000;u>0;u--);
+}
+void main()
+{
+   int n,flag,ele,i;
+   int arr[1000];
+   time_t start,end;
+   start=time(NULL);
+   delay();
+   printf("Enter the number of elements");
+   scanf("%d",&n);
+   for(i=0;i<n;i++)
+   {
+       arr[i]=rand();
+   }
+   printf("Enter the element to search");
+   scanf("%d",&ele);
+  
+   for(i=0;i<n;i++)
+   {
+       if(arr[i]==ele)
+       {
+           printf("Element found in location %d",(i+1));
+           flag=0;
+       }
+   }
+   if(flag!=0)
+   {
+       printf("Element not found");
+   }
+   end=time(NULL);
+   printf("Time is %fs",difftime(end,start));
+
+}

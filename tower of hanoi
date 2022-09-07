@@ -1,0 +1,25 @@
+#include<stdio.h>
+#include<time.h>
+void tower(int disc, char from, char to, char aux)
+{
+    if(disc == 1)
+    {
+        printf("\n moce disc 1 from %c to %c", from, to);
+        return;
+    }
+    tower(disc-1, from,aux,to);
+    printf("\n move disc %d from %c to %c", disc, from,to);
+    tower(disc-1, aux, to, from);
+}
+int main()
+{
+    int n;
+    time_t start, end;
+    printf("Enter the number of discs \n");
+    scanf("%d", &n);
+    start = time(NULL);
+    tower(n, 'a', 'b', 'c');
+    end= time(NULL);
+    printf("\n time taken: %f", difftime(end, start));
+    return 0;
+}
